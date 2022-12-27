@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2022 xuexiangjys(xuexiangjys@163.com)
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<resources>
+    <attr name="LoggerTextStyle" format="reference" />
+
+    <attr name="LoadingStyle" format="reference"/>
+    <declare-styleable name="LoadingView">
+        <!--loading控件的大小，默认32dp-->
+        <attr name="lv_loading_view_size" format="dimension" />
+        <!--loading控件的颜色，默认白色-->
+        <attr name="lv_loading_view_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="MultiEditText">
+        <!--最大输入文字的数目，默认240-->
+        <attr name="met_maxCount" format="integer" />
+        <!--是否忽略中英文的差异，默认true-->
+        <attr name="met_ignoreCnOrEn" format="boolean" />
+        <!--输入框提示文字-->
+        <attr name="met_hintText" format="string|reference" />
+        <!--输入框提示文字的颜色-->
+        <attr name="met_hintTextColor" format="color|reference" />
+        <!--输入框的padding， 默认10dp-->
+        <attr name="met_contentPadding" format="dimension" />
+        <!--输入框背景-->
+        <attr name="met_contentBackground" format="reference" />
+        <!--输入框的内容-->
+        <attr name="met_contentText" format="string|reference" />
+        <!--输入框文字的大小-->
+        <attr name="met_contentTextSize" format="dimension|reference" />
+        <!--输入框文字的颜色-->
+        <attr name="met_contentTextColor" format="color|reference" />
+        <!--输入框的高度，默认140dp-->
+        <attr name="met_contentViewHeight" format="dimension|reference" />
+        <!--输入框的高度是否是固定高度，默认是true-->
+        <attr name="met_isFixHeight" format="boolean" />
+        <!--统计数字显示剩余数目,默认false-->
+        <attr name="met_showSurplusNumber" format="boolean" />
+    </declare-styleable>
+    <attr format="reference" name="MultiEditTextStyle"/>
+
+</resources>
