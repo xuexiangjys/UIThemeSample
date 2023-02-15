@@ -23,13 +23,11 @@ import com.xuexiang.uithemesample.fragment.custom.FullyCustomViewFragment
 import com.xuexiang.xpage.annotation.Page
 
 /**
- * 这个只是一个空壳Fragment，只是用于演示而已
- *
  * @author xuexiang
  * @since 2019-07-08 00:52
  */
 @Page(name = "自定义控件")
-class CustomViewFragment : BaseContainerFragment() {
+class CustomViewSampleFragment : BaseContainerFragment() {
 
     override fun getPagesClasses(): Array<Class<*>> {
         return arrayOf( //此处填写fragment

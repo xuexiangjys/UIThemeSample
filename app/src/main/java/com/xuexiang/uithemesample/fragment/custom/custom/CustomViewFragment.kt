@@ -15,40 +15,40 @@
  *
  */
 
-package com.xuexiang.uithemesample.fragment.custom
+package com.xuexiang.uithemesample.fragment.custom.custom
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.xuexiang.uithemesample.core.ViewBindingFragment
-import com.xuexiang.uithemesample.databinding.FragmentCombineViewBinding
+import com.xuexiang.uithemesample.databinding.FragmentCustomViewBinding
 import com.xuexiang.xpage.annotation.Page
-import com.xuexiang.xutil.tip.ToastUtils
 
 /**
- * 组合的方式实现自定义控件
+ * 自定义View实现自定义控件
  *
  * @author xuexiang
  * @since 2022/7/7 1:18 上午
  */
-@Page(name = "组合控件")
-class CombineViewFragment : ViewBindingFragment<FragmentCombineViewBinding>() {
+@Page(name = "自定义View")
+class CustomViewFragment : ViewBindingFragment<FragmentCustomViewBinding>() {
+
+    private var isLoading = true
 
     override fun viewBindingInflate(
         inflater: LayoutInflater,
         container: ViewGroup
-    ) = FragmentCombineViewBinding.inflate(inflater, container, false)
+    ) = FragmentCustomViewBinding.inflate(inflater, container, false)
 
     override fun initViews() {
-        binding?.btnClear?.setOnClickListener {
-            binding?.multiEditText?.contentText = ""
-        }
-        binding?.btnSubmit?.setOnClickListener {
-            val content = binding?.multiEditText?.contentText ?: ""
-            if (content.isEmpty()) {
-                ToastUtils.toast("请输入内容！")
+        binding?.action?.setOnClickListener {
+            if (isLoading) {
+                binding?.loading?.stop()
+                binding?.action?.text = "开始"
             } else {
-                ToastUtils.toast(binding?.multiEditText?.contentText ?: "")
+                binding?.loading?.start()
+                binding?.action?.text = "停止"
             }
+            isLoading = !isLoading
         }
     }
 

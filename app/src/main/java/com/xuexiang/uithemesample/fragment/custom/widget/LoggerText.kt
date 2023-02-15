@@ -229,26 +229,18 @@ class LoggerText @JvmOverloads constructor(
     class DefaultLogDecorator : ILogDecorator {
         override fun decorate(logContent: String, logType: LogType?): SpannableString {
             val spannableString = SpannableString(logContent)
-            when (logType) {
-                LogType.ERROR -> spannableString.setSpan(
-                    ForegroundColorSpan(ResUtils.getColor(R.color.xui_config_color_error)),
-                    0,
+            val colorSpan = when (logType) {
+                LogType.ERROR -> ForegroundColorSpan(ResUtils.getColor(R.color.xui_config_color_error))
+                LogType.SUCCESS -> ForegroundColorSpan(ResUtils.getColor(R.color.xui_config_color_success))
+                LogType.WARNING -> ForegroundColorSpan(ResUtils.getColor(R.color.xui_config_color_waring))
+                else -> null
+            }
+            colorSpan?.let {
+                spannableString.setSpan(
+                    it, 0,
                     logContent.length,
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
-                LogType.SUCCESS -> spannableString.setSpan(
-                    ForegroundColorSpan(ResUtils.getColor(R.color.xui_config_color_success)),
-                    0,
-                    logContent.length,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-                )
-                LogType.WARNING -> spannableString.setSpan(
-                    ForegroundColorSpan(ResUtils.getColor(R.color.xui_config_color_waring)),
-                    0,
-                    logContent.length,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-                )
-                else -> {}
             }
             return spannableString
         }

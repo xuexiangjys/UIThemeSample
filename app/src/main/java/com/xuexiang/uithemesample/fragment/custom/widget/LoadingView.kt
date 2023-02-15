@@ -14,7 +14,9 @@ import com.xuexiang.uithemesample.R
 import com.xuexiang.xui.utils.DensityUtils
 
 /**
- * 用于显示 Loading 的 [View]，支持颜色和大小的设置。【完全自定义View的方式】
+ * 自定义View：用于显示 Loading 的 [View]，支持颜色和大小的设置。
+ *
+ * 主要重写：onDraw方法
  *
  * @author xuexiang
  * @since 2022/12/11 16:40
@@ -87,14 +89,12 @@ class LoadingView @JvmOverloads constructor(
     }
 
     fun stop() {
-        if (mAnimator != null) {
-            mAnimator?.run {
-                removeUpdateListener(mUpdateListener)
-                removeAllUpdateListeners()
-                cancel()
-            }
-            mAnimator = null
+        mAnimator?.run {
+            removeUpdateListener(mUpdateListener)
+            removeAllUpdateListeners()
+            cancel()
         }
+        mAnimator = null
     }
 
     private fun drawLoading(canvas: Canvas, rotateDegrees: Int) {

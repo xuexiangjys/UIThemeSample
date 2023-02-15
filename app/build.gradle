@@ -14,7 +14,7 @@ android {
     buildToolsVersion build_versions.build_tools
 
     defaultConfig {
-        applicationId "com.xuexiang.uitheme"
+        applicationId "com.xuexiang.uithemesample"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 1
@@ -109,6 +109,8 @@ dependencies {
     //umeng统计
     implementation 'com.umeng.umsdk:common:9.3.8'
     implementation 'com.umeng.umsdk:asms:1.2.1'
+
+    implementation 'com.google.android:flexbox:0.3.1'
 
     //美团多渠道打包
     implementation 'com.meituan.android.walle:library:1.1.6'

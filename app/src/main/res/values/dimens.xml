@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (C) 2022 xuexiangjys(xuexiangjys@163.com)
+  ~ Copyright (C) 2023 xuexiangjys(xuexiangjys@163.com)
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,16 +15,11 @@
   ~
   -->
 
+<resources>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    <dimen name="margin12">12dp</dimen>
+    <dimen name="margin4">4dp</dimen>
+    <dimen name="margin8">8dp</dimen>
+    <dimen name="spacing_16">16dp</dimen>
 
-    <TextView
-        style="@style/TextStyle.Title"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello world!" />
-
-</LinearLayout>
+</resources>

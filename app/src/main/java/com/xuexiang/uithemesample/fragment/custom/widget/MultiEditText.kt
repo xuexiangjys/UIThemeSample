@@ -25,6 +25,8 @@ import kotlin.math.roundToLong
  * 2个英文算1个
  * 另外：如：只有一个英文时也算1个
  *
+ * 主要需要使用LayoutInflater去加载组合控件的布局。
+ *
  * @author XUE
  * @since 2019/3/22 13:46
  */
@@ -241,10 +243,10 @@ class MultiEditText @JvmOverloads constructor(
 
     private fun configCount() {
         if (mIgnoreCnOrEn) {
-            val nowCount = calculateLengthIgnoreCnOrEn(editText!!.text.toString())
+            val nowCount = calculateLengthIgnoreCnOrEn(editText.text.toString())
             updateCount(nowCount)
         } else {
-            val nowCount = calculateLength(editText!!.text.toString()).toInt()
+            val nowCount = calculateLength(editText.text.toString()).toInt()
             updateCount(nowCount)
         }
     }
