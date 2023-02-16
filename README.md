@@ -37,7 +37,66 @@ Android的UI主题使用案例
 
 可以看到，组合的方式和我们平时写一个Fragment的流程是很类似的。
 
-## 主题
+## Theme主题
+
+主题应用，采取就近原则：Application > Activity > ViewGroup > View。 一般而言，Theme主要应用于Application和Activity这样的窗体，主要放在`/res/values/themes.xml`。
+
+```xml
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+</resources>
+```
+
+### Application中的Theme
+
+Application的主题一般在`Manifest`中，它只对在`Manifest`中未设置Theme的Activity生效。
+
+```xml
+<application android:theme="@style/AppTheme">
+
+</application>
+```
+
+### Activity中的Theme
+
+Activity的主题可以在`Manifest`和代码中调用`setTheme`设置。一般在Activity的onCreate()中，`setContentView`方法之前设置。
+
+1.在`Manifest`中设置。
+
+```xml
+<activity android:theme="@style/DialogTheme">
+
+</activity>
+```
+
+2.代码中调用`setTheme`设置。
+
+```kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setTheme(R.style.AppTheme)
+    setContentView(R.layout.layout_main)
+}
+```
+
+### ViewGroup和View中的Theme
+
+ViewGroup和View的主题一般在布局xml中设置。
+
+```xml
+<ViewGroup 
+    android:theme="@style/ThemeOverlay.App.Foo">
+    
+    <Button android:theme="@style/ThemeOverlay.App.Bar" />
+    
+</ViewGroup>
+```
+
+## 样式Style
 
 
 
