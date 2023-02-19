@@ -39,7 +39,7 @@ Android的UI主题使用案例
 
 ## Theme主题
 
-主题应用，采取就近原则：Application > Activity > ViewGroup > View。 一般而言，Theme主要应用于Application和Activity这样的窗体，主要放在`/res/values/themes.xml`。
+应用于窗体级别，是一整套样式的组合，采取就近原则：Application > Activity > ViewGroup > View。 一般而言，Theme主要应用于Application和Activity这样的窗体，主要放在`/res/values/themes.xml`。
 
 ```xml
 <resources>
@@ -73,7 +73,7 @@ Activity的主题可以在`Manifest`和代码中调用`setTheme`设置。一般�
 </activity>
 ```
 
-2.代码中调用`setTheme`设置。
+2.代码中调用`setTheme`设置，注意一定要在调用`setContentView(View)`和`inflate(int, ViewGroup)`方法前。
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -85,7 +85,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 ### ViewGroup和View中的Theme
 
-ViewGroup和View的主题一般在布局xml中设置。
+ViewGroup和View的主题一般在布局xml中设置，使用`android:theme`设置。
 
 ```xml
 <ViewGroup 
@@ -96,9 +96,81 @@ ViewGroup和View的主题一般在布局xml中设置。
 </ViewGroup>
 ```
 
-## 样式Style
+## Style样式
+
+> 仅应用于单个View这种窗体元素级别的外观，主要放在`/res/values/styles.xml`。
+
+### Style的声明
+
+### Style的使用
+
+样式一般在布局xml中设置，使用`android:style`设置，不同于主题，样式只能应用于单个View，对于其子View并不会生效。
+
+```xml
+<ViewGroup 
+    android:style="@style/ActionContainerStyle">
+    
+    <Button android:style="@style/BlueButtonStyle" />
+    
+</ViewGroup>
+```
+
+### Style的优先级顺序
+
+如果我们在多个地方给控件指定了style的属性，那么最终是由谁生效呢？这里我们就以TextView为例，介绍一下Style的生效规则：
+
+* 1.通过文本span将字符设置的样式应用到TextView派生的类。
+* 2.以代码方式动态设置的属性。
+* 3.将单独的属性直接应用到View。
+* 4.将样式应用到View。
+* 5.控件的默认样式，在View构造方法中定义的。
+* 6.控件所处应用、Activity、父布局所应用的主题。
+* 7.应用某些特定于View的样式，例如为TextView设置TextAppearance。
+
+## Attribute属性
+
+> Attribute属性是组成Style的基本单位。如果说主题是各种样式的组合，那么样式就是各种属性的组合，主要放在`/res/values/attrs.xml`。
+
+### Attribute的声明
+
+1.单个属性的定义
+
+```xml
+<resource>
+
+    <attr name="attr-name" format="format-type" />
+
+</resource>
+```
+
+2.一组属性的定义
+
+```xml
+<resource>
+
+    <declare-styleable name="XXXXView">
+        <attr name="attr-name" format="format-type" />
+        <attr name="attr-name" format="format-type" />
+    </declare-styleable>
+
+</resource>
+```
+
+3.属性的赋值
+
+```xml
+<style name="xx">
+
+  <item name="attr-name">value</item>
+
+</style>
+```
+
+### Attribute的使用
 
 
+
+### Attribute的获取
 
 
 ## 如果觉得项目还不错，可以考虑打赏一波
