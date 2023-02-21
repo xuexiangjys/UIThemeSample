@@ -25,4 +25,28 @@
         <item name="android:activityCloseExitAnimation">@anim/xpage_slide_out_right</item>
     </style>
 
+    <style name="ScrollViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:overScrollMode">never</item>
+    </style>
+
+
+    <!--  作为控件CustomTextView默认的样式  -->
+    <style name="DefaultCustomTextStyle" parent="AppTheme.Widget.TextView">
+        <item name="ctv_size">medium</item>
+        <item name="ctv_is_password">false</item>
+    </style>
+
+    <style name="LargeCustomTextStyle" parent="AppTheme.Widget.TextView">
+        <item name="ctv_size">large</item>
+        <item name="ctv_is_password">false</item>
+    </style>
+
+    <style name="PasswordTextStyle" parent="AppTheme.Widget.TextView">
+        <item name="ctv_size">medium</item>
+        <item name="ctv_is_password">true</item>
+    </style>
+
+
 </resources>

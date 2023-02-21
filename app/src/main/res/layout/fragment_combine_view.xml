@@ -22,7 +22,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.xuexiang.uithemesample.fragment.custom.widget.MultiEditText
+    <com.xuexiang.uithemesample.widget.MultiEditText
         android:id="@+id/multi_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

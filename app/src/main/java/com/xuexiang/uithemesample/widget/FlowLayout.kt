@@ -1,4 +1,4 @@
-package com.xuexiang.uithemesample.fragment.custom.widget
+package com.xuexiang.uithemesample.widget
 
 import android.content.Context
 import android.util.AttributeSet

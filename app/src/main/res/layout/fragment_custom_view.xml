@@ -30,7 +30,7 @@
         android:background="@color/xui_config_color_25_pure_black"
         android:padding="16dp">
 
-        <com.xuexiang.uithemesample.fragment.custom.widget.LoadingView
+        <com.xuexiang.uithemesample.widget.LoadingView
             android:id="@+id/loading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

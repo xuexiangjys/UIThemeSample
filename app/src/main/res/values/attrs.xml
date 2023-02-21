@@ -54,4 +54,21 @@
     </declare-styleable>
     <attr format="reference" name="MultiEditTextStyle"/>
 
+    <!-- CustomTextView的自定义样式属性 -->
+    <attr name="CustomTextStyle" format="reference"/>
+    <declare-styleable name="CustomTextView">
+        <!-- 文字尺寸样式 -->
+        <attr name="ctv_size" format="enum">
+            <!--  12sp -->
+            <enum name="small" value="0"/>
+            <!--  16sp -->
+            <enum name="medium" value="1"/>
+            <!--  21sp -->
+            <enum name="large" value="2"/>
+        </attr>
+        <!-- 文字的样式是否是“*” -->
+        <attr name="ctv_is_password" format="boolean" />
+    </declare-styleable>
+
+
 </resources>

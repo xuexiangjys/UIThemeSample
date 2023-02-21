@@ -21,7 +21,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.xuexiang.uithemesample.core.ViewBindingFragment
 import com.xuexiang.uithemesample.databinding.FragmentExtendViewBinding
-import com.xuexiang.uithemesample.fragment.custom.widget.LoggerText
+import com.xuexiang.uithemesample.widget.LoggerText
 import com.xuexiang.xpage.annotation.Page
 import com.xuexiang.xutil.data.DateUtils
 import java.text.SimpleDateFormat

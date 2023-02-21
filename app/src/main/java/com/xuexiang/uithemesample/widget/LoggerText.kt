@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 xuexiangjys(xuexiangjys@163.com)
+ * Copyright (C) 2023 xuexiangjys(xuexiangjys@163.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  */
-package com.xuexiang.uithemesample.fragment.custom.widget
+package com.xuexiang.uithemesample.widget
 
 import android.content.Context
 import android.os.Looper

@@ -17,25 +17,21 @@
 package com.xuexiang.uithemesample.fragment
 
 import com.xuexiang.uithemesample.core.BaseContainerFragment
-import com.xuexiang.uithemesample.fragment.custom.CombineViewFragment
-import com.xuexiang.uithemesample.fragment.custom.ExtendViewFragment
-import com.xuexiang.uithemesample.fragment.custom.FullyCustomViewFragment
+import com.xuexiang.uithemesample.fragment.style.StyleRuleFragment
 import com.xuexiang.xpage.annotation.Page
 
 /**
- * 自定义控件
+ * Style样式
  *
  * @author xuexiang
  * @since 2023/2/22 00:57
  */
-@Page(name = "自定义控件")
-class CustomViewSampleFragment : BaseContainerFragment() {
+@Page(name = "Style样式")
+class StyleSampleFragment : BaseContainerFragment() {
 
     override fun getPagesClasses(): Array<Class<*>> {
         return arrayOf( //此处填写fragment
-            ExtendViewFragment::class.java,
-            CombineViewFragment::class.java,
-            FullyCustomViewFragment::class.java
+            StyleRuleFragment::class.java,
         )
     }
 

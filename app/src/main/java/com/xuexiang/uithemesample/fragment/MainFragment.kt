@@ -34,7 +34,8 @@ import com.xuexiang.xutil.common.ClickUtils.OnClick2ExitListener
 class MainFragment : BaseContainerFragment(), OnClick2ExitListener {
     override fun getPagesClasses(): Array<Class<*>> {
         return arrayOf( //此处填写fragment
-            CustomViewSampleFragment::class.java
+            CustomViewSampleFragment::class.java,
+            StyleSampleFragment::class.java
         )
     }
 

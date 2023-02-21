@@ -72,7 +72,7 @@
 
     </com.google.android.flexbox.FlexboxLayout>
 
-    <com.xuexiang.uithemesample.fragment.custom.widget.LoggerText
+    <com.xuexiang.uithemesample.widget.LoggerText
         android:id="@+id/logger"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
