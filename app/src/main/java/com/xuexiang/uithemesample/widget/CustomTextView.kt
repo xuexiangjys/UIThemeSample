@@ -19,11 +19,10 @@ package com.xuexiang.uithemesample.widget
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import com.xuexiang.uithemesample.R
+import com.xuexiang.xui.widget.edittext.AsteriskPasswordTransformationMethod
 import com.xuexiang.xutil.display.Colors
 
 /**
@@ -33,7 +32,6 @@ import com.xuexiang.xutil.display.Colors
  * @since 2023/2/22 01:09
  */
 @SuppressLint("AppCompatCustomView")
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 class CustomTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -84,10 +82,9 @@ class CustomTextView @JvmOverloads constructor(
 
 
     companion object {
-        private const val SMALL = 0
-        private const val MEDIUM = 1
-        private const val LARGE = 2
-
+        const val SMALL = 0
+        const val MEDIUM = 1
+        const val LARGE = 2
     }
 
 }

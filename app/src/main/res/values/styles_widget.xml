@@ -48,5 +48,10 @@
         <item name="ctv_is_password">true</item>
     </style>
 
+    <style name="LargePasswordTextStyle" parent="AppTheme.Widget.TextView">
+        <item name="ctv_size">large</item>
+        <item name="ctv_is_password">true</item>
+    </style>
+
 
 </resources>

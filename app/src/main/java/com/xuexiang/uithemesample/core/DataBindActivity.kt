@@ -20,6 +20,9 @@ import android.content.Context
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.FragmentManager
+import com.xuexiang.uithemesample.R
+import com.xuexiang.uithemesample.utils.SettingUtils
 import com.xuexiang.xpage.base.XPageActivity
 import com.xuexiang.xpage.base.XPageFragment
 import com.xuexiang.xpage.core.CoreSwitchBean
@@ -36,7 +39,7 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper
 open class DataBindActivity<DataBinding : ViewDataBinding?> : XPageActivity() {
 
     /**
-     * ViewBinding
+     * DataBinding
      */
     var binding: DataBinding? = null
         protected set
@@ -52,6 +55,7 @@ open class DataBindActivity<DataBinding : ViewDataBinding?> : XPageActivity() {
     }
 
     override fun setContentView() {
+        clearPopBackStack()
         val rootId = getCustomRootId()
         if (rootId != -1) {
             binding = DataBindingUtil.setContentView(this, rootId)
@@ -60,12 +64,27 @@ open class DataBindActivity<DataBinding : ViewDataBinding?> : XPageActivity() {
         }
     }
 
+    private fun clearPopBackStack() {
+        val count = supportFragmentManager.backStackEntryCount
+        if (count > 0) {
+            for (i in 0 until count) {
+                supportFragmentManager.popBackStackImmediate()
+            }
+        }
+    }
+
     open fun getCustomRootId() = -1
 
     /**
      * 初始化状态栏的样式
      */
-    open fun initStatusBarStyle() {}
+    open fun initStatusBarStyle() {
+        if (SettingUtils.isUseCustomTheme) {
+            setTheme(R.style.AppTheme)
+        } else {
+            setTheme(R.style.CustomTheme)
+        }
+    }
 
     /**
      * 打开fragment

@@ -20,10 +20,14 @@ import android.content.res.Configuration
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.fragment.app.Fragment
 import com.umeng.analytics.MobclickAgent
 import com.xuexiang.templateproject.core.SimpleListAdapter
 import com.xuexiang.xaop.annotation.SingleClick
 import com.xuexiang.xpage.base.XPageContainerListFragment
+import com.xuexiang.xpage.base.XPageFragment
+import com.xuexiang.xpage.core.PageOption
+import com.xuexiang.xpage.enums.CoreAnim
 import com.xuexiang.xui.widget.actionbar.TitleBar
 import com.xuexiang.xui.widget.actionbar.TitleUtils
 import java.util.*
@@ -97,5 +101,19 @@ abstract class BaseContainerFragment : XPageContainerListFragment() {
     override fun onPause() {
         super.onPause()
         MobclickAgent.onPageEnd(pageName)
+    }
+
+    /**
+     * 打开一个新的页面【建议只在主tab页使用】
+     *
+     * @param pageName 页面名
+     * @param <T>
+     * @return
+    </T> */
+    fun openNewPage(pageName: String?): Fragment? {
+        return PageOption(pageName)
+            .setAnim(CoreAnim.slide)
+            .setNewActivity(true)
+            .open(this)
     }
 }

@@ -16,9 +16,9 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView style="@style/ScrollViewStyle">
@@ -29,22 +29,141 @@
             android:layout_margin="@dimen/spacing_16"
             android:orientation="vertical">
 
-            <com.xuexiang.uithemesample.widget.CustomTextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="默认的样式" />
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextStyle.Explain"
+                    android:layout_marginEnd="@dimen/spacing_16"
+                    android:text="@string/label_span_setting" />
+
+                <com.xuexiang.uithemesample.widget.CustomTextView
+                    android:id="@+id/ctv_span"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_content_sample"
+                    android:textColor="@color/app_color_theme_3"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_16"/>
+                android:layout_height="@dimen/spacing_16" />
 
-            <com.xuexiang.uithemesample.widget.CustomTextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:ctv_is_password="true"
-                app:ctv_size="large"
-                android:text="密码+large" />
+                android:orientation="horizontal">
 
+                <TextView
+                    style="@style/TextStyle.Explain"
+                    android:layout_marginEnd="@dimen/spacing_16"
+                    android:text="@string/label_coding_setting" />
+
+                <com.xuexiang.uithemesample.widget.CustomTextView
+                    android:id="@+id/ctv_coding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_content_sample"
+                    app:ctv_is_password="true"
+                    app:ctv_size="small" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_16" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextStyle.Explain"
+                    android:layout_marginEnd="@dimen/spacing_16"
+                    android:text="@string/label_attribute_setting" />
+
+                <com.xuexiang.uithemesample.widget.CustomTextView
+                    style="@style/LargePasswordTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_content_sample"
+                    android:textColor="@color/app_color_theme_5"
+                    app:ctv_is_password="false"
+                    app:ctv_size="small" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_16" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextStyle.Explain"
+                    android:layout_marginEnd="@dimen/spacing_16"
+                    android:text="@string/label_style_setting" />
+
+                <com.xuexiang.uithemesample.widget.CustomTextView
+                    style="@style/LargePasswordTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_content_sample"
+                    android:textColor="@color/app_color_theme_4" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_16" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextStyle.Explain"
+                    android:layout_marginEnd="@dimen/spacing_16"
+                    android:text="@string/label_default_style" />
+
+                <com.xuexiang.uithemesample.widget.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_content_sample" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_16" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextStyle.Explain"
+                    android:layout_marginEnd="@dimen/spacing_16"
+                    android:text="@string/label_text_appearance_style" />
+
+                <com.xuexiang.uithemesample.widget.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_content_sample"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

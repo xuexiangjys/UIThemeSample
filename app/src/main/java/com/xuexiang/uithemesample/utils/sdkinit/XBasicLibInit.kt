@@ -19,6 +19,7 @@ package com.xuexiang.uithemesample.utils.sdkinit
 import android.app.Application
 import com.xuexiang.uithemesample.MyApp
 import com.xuexiang.uithemesample.core.DataBindActivity
+import com.xuexiang.uithemesample.utils.MMKVUtils
 import com.xuexiang.uithemesample.utils.XToastUtils
 import com.xuexiang.xaop.XAOP
 import com.xuexiang.xpage.PageConfig
@@ -61,6 +62,7 @@ class XBasicLibInit private constructor() {
         private fun initXUtil(application: Application) {
             XUtil.init(application)
             XUtil.debug(MyApp.isDebug)
+            MMKVUtils.init(application)
         }
 
         /**

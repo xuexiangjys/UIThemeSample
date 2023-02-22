@@ -14,6 +14,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CustomTheme" parent="XUITheme.Phone">
+        <item name="colorPrimary">@color/app_color_theme_1</item>
+        <item name="colorPrimaryDark">@color/app_color_theme_1</item>
+        <item name="colorAccent">@color/app_color_theme_1</item>
+        <item name="xui_actionbar_color">@color/app_color_theme_1</item>
+        <!--  定义了CustomTextStyle的主题样式 -->
+        <item name="CustomTextStyle">@style/LargePasswordTextStyle</item>
+    </style>
+
     <!--DialogTheme，用于将Activity作为Dialog的主题-->
     <style name="DialogTheme" parent="XUITheme.Phone">
         <!--设置dialog的背景，此处为系统给定的透明值-->

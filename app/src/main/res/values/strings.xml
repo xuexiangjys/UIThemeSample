@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">UIThemeSample</string>
+    <string name="label_text_content_sample">这是一段文字</string>
+    <string name="label_span_setting">使用Span设置:</string>
+    <string name="label_coding_setting">代码动态设置:</string>
+    <string name="label_attribute_setting">单独属性设置:</string>
+    <string name="label_style_setting">单独引用样式:</string>
+    <string name="label_default_style">默认的样式:</string>
+    <string name="label_text_appearance_style">设置了TextAppearance:</string>
+
 </resources>

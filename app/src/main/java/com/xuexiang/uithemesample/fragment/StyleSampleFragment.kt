@@ -30,9 +30,19 @@ import com.xuexiang.xpage.annotation.Page
 class StyleSampleFragment : BaseContainerFragment() {
 
     override fun getPagesClasses(): Array<Class<*>> {
-        return arrayOf( //此处填写fragment
+        return arrayOf(
+            //此处填写fragment
             StyleRuleFragment::class.java,
         )
+    }
+
+    /**
+     * 条目点击
+     *
+     * @param position
+     */
+    override fun onItemClick(position: Int) {
+        openNewPage(getSimpleDataItem(position))
     }
 
 }

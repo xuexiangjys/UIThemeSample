@@ -106,6 +106,8 @@ dependencies {
     implementation deps.androidx.multidex
     //屏幕适配AutoSize
     implementation 'me.jessyan:autosize:1.2.1'
+    //腾讯的键值对存储mmkv
+    implementation 'com.tencent:mmkv:1.2.10'
     //umeng统计
     implementation 'com.umeng.umsdk:common:9.3.8'
     implementation 'com.umeng.umsdk:asms:1.2.1'
