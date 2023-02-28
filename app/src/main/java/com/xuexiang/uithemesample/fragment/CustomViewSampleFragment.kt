@@ -18,6 +18,7 @@ package com.xuexiang.uithemesample.fragment
 
 import com.xuexiang.uithemesample.core.BaseContainerFragment
 import com.xuexiang.uithemesample.fragment.custom.CombineViewFragment
+import com.xuexiang.uithemesample.fragment.custom.CustomSurfaceViewFragment
 import com.xuexiang.uithemesample.fragment.custom.ExtendViewFragment
 import com.xuexiang.uithemesample.fragment.custom.FullyCustomViewFragment
 import com.xuexiang.xpage.annotation.Page
@@ -35,7 +36,8 @@ class CustomViewSampleFragment : BaseContainerFragment() {
         return arrayOf( //此处填写fragment
             ExtendViewFragment::class.java,
             CombineViewFragment::class.java,
-            FullyCustomViewFragment::class.java
+            FullyCustomViewFragment::class.java,
+            CustomSurfaceViewFragment::class.java
         )
     }
 
