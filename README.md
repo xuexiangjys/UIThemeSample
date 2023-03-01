@@ -12,11 +12,71 @@ Android的UI主题使用案例
 
 ### 完全自定义View实现自定义控件
 
-自定义View或者自定义ViewGroup：
+自定义View、ViewGroup或者SurfaceView：
 
 * 自定义View：主要重写onDraw（绘制）方法。
 
 * 自定义ViewGroup：主要重写：onMeasure（测量）、onLayout（布局）这两个方法。
+
+* 自定义SurfaceView：创建RenderThread，然后调用`SurfaceHolder的.lockCanvas`方法获取画布，再调用`SurfaceHolder的.unlockCanvasAndPost`方法将绘制的画布投射到屏幕上。
+
+```kotlin
+
+class CustomSurfaceView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+) : SurfaceView(context, attrs), SurfaceHolder.Callback {
+
+    private var mSurfaceHolder: SurfaceHolder = holder
+    private lateinit var mRenderThread: RenderThread
+    private var mIsDrawing = false
+    
+    override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {}
+    override fun surfaceCreated(holder: SurfaceHolder) {
+        // 开启RenderThread
+        mIsDrawing = true
+        mRenderThread = RenderThread()
+        mRenderThread.start()
+    }
+
+    override fun surfaceDestroyed(holder: SurfaceHolder) {
+        // 销毁RenderThread
+        mIsDrawing = false
+        mRenderThread.interrupt()
+    }
+
+    /**
+     * 绘制界面的线程
+     */
+    private inner class RenderThread : Thread() {
+
+        override fun run() {
+            // 不停绘制界面
+            while (mIsDrawing) {
+                drawUI()
+                try {
+                    sleep(...) // 刷新间隔
+                } catch (_: InterruptedException) {
+                }
+            }
+        }
+    }
+
+    /**
+     * 界面绘制
+     */
+    private fun drawUI() {
+        val canvas = mSurfaceHolder.lockCanvas()
+        try {
+            drawCanvas(canvas)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        } finally {
+            mSurfaceHolder.unlockCanvasAndPost(canvas)
+        }
+    }
+}
+```
 
 ### 继承组件的方式实现自定义控件
 
@@ -102,6 +162,16 @@ ViewGroup和View的主题一般在布局xml中设置，使用`android:theme`设�
 
 ### Style的声明
 
+样式的声明，一般放在`/res/values/...`目录下带`styles`的文件中，使用`<style name="style-name"> </style>`进行设置。
+
+```xml
+<style name="style-name" parent="parent-style-name">
+    <item name="attr-name1">value1</item>
+    <item name="attr-name2">value2</item>
+    <item name="attr-name3">value3</item>
+</style>
+```
+
 ### Style的使用
 
 样式一般在布局xml中设置，使用`android:style`设置，不同于主题，样式只能应用于单个View，对于其子View并不会生效。
@@ -168,10 +238,46 @@ ViewGroup和View的主题一般在布局xml中设置，使用`android:theme`设�
 
 ### Attribute的使用
 
+使用`?attr/xxx`或者`?xxx`进行引用。这里xxx是定义的属性名（attr-name）。
 
+```xml
+<TextView
+    android:foreground="?attr/selectableItemBackground"
+    android:textColor="?colorAccent" />
+```
 
 ### Attribute的获取
 
+* 属性集的获取: 使用`context.obtainStyledAttributes`进行整体获取。
+
+```kotlin
+val array = context.obtainStyledAttributes(attrs, R.styleable.CustomTextView, defStyleAttr, defStyleRes)
+size = array.getInteger(R.styleable.CustomTextView_ctv_size, size)
+isPassword = array.getBoolean(R.styleable.CustomTextView_ctv_is_password, isPassword)
+array.recycle()
+```
+
+* 单个属性的获取: 使用`context.theme.resolveAttribute`进行获取。
+
+```kotlin
+fun Resources.Theme.resolveAttributeToDimension(@AttrRes attributeId: Int, defaultValue: Float = 0F) : Float {
+    val typedValue = TypedValue()
+    return if (resolveAttribute(attributeId, typedValue, true)) {
+        typedValue.getDimension(resources.displayMetrics)
+    } else {
+        defaultValue
+    }
+}
+
+fun Context.resolveDimension(@AttrRes attributeId: Int, defaultValue: Float = 0F) : Float {
+    val typedArray = theme.obtainStyledAttributes(intArrayOf(attributeId))
+    return try {
+        typedArray.getDimension(0, defaultValue)
+    } finally {
+        typedArray.recycle()
+    }
+}
+```
 
 ## 如果觉得项目还不错，可以考虑打赏一波
 

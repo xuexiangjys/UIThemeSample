@@ -17,6 +17,7 @@
 package com.xuexiang.uithemesample.fragment
 
 import com.xuexiang.uithemesample.core.BaseContainerFragment
+import com.xuexiang.uithemesample.fragment.style.AttributeFragment
 import com.xuexiang.uithemesample.fragment.style.StyleRuleFragment
 import com.xuexiang.xpage.annotation.Page
 
@@ -33,6 +34,7 @@ class StyleSampleFragment : BaseContainerFragment() {
         return arrayOf(
             //此处填写fragment
             StyleRuleFragment::class.java,
+            AttributeFragment::class.java
         )
     }
 

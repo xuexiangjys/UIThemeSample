@@ -90,8 +90,6 @@ class CustomSurfaceView @JvmOverloads constructor(
 
     /**
      * 绘制界面的线程
-     *
-     * @author Administrator
      */
     private inner class RenderThread : Thread() {
 

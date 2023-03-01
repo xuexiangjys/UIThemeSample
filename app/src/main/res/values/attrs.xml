@@ -70,5 +70,6 @@
         <attr name="ctv_is_password" format="boolean" />
     </declare-styleable>
 
+    <attr name="test_dimension" format="dimension" />
 
 </resources>
