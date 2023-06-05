@@ -20,7 +20,6 @@ package com.xuexiang.uithemesample.widget
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.widget.TextView
 import com.xuexiang.uithemesample.R
 import com.xuexiang.xui.widget.edittext.AsteriskPasswordTransformationMethod
@@ -70,12 +69,6 @@ class CustomTextView @JvmOverloads constructor(
         }
 
     init {
-        val typedValue = TypedValue()
-        val isSuccess = context.theme.resolveAttribute(R.attr.colorAccent, typedValue, true)
-        if (isSuccess) {
-            typedValue.getDimension(context.resources.displayMetrics)
-        }
-
         val array = context.obtainStyledAttributes(
             attrs,
             R.styleable.CustomTextView,
